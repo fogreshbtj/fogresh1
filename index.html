@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fogresh - Layanan Fogging Interior Mobil Profesional</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: #3498db;
+            background: white;
+            padding: 5px;
+            border-radius: 50%;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #3498db;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid #3498db;
+        }
+        
+        .btn:hover {
+            background: transparent;
+            color: #3498db;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: #7f8c8d;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .service-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-img {
+            height: 200px;
+            background-color: #3498db;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 60px;
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .service-content p {
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+        
+        .price {
+            font-size: 24px;
+            font-weight: 700;
+            color: #3498db;
+            margin-bottom: 20px;
+        }
+        
+        /* Benefits Section */
+        .benefits {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .benefit-item {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .benefit-item i {
+            font-size: 40px;
+            color: #3498db;
+            margin-bottom: 20px;
+        }
+        
+        .benefit-item h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+        
+        .step {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: #3498db;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+        
+        .step:not(:last-child):after {
+            content: '';
+            position: absolute;
+            top: 25px;
+            right: 0;
+            width: 50%;
+            height: 2px;
+            background: #3498db;
+        }
+        
+        .step:not(:first-child):before {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: 0;
+            width: 50%;
+            height: 2px;
+            background: #3498db;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn-light {
+            background: white;
+            color: #3498db;
+            border: 2px solid white;
+        }
+        
+        .btn-light:hover {
+            background: transparent;
+            color: white;
+        }
+        
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #3498db;
+        }
+        
+        .footer-column p, .footer-column a {
+            color: #ecf0f1;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: #3498db;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: #3498db;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .steps {
+                flex-direction: column;
+                gap: 40px;
+            }
+            
+            .step:not(:last-child):after, .step:not(:first-child):before {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-cloud"></i>
+                <span>Fogresh</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Beranda</a></li>
+                    <li><a href="#">Layanan</a></li>
+                    <li><a href="#">Tentang Kami</a></li>
+                    <li><a href="#">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Layanan Fogging Interior Mobil Profesional</h1>
+            <p>Bebaskan mobil Anda dari bakteri, virus, dan jamur dengan layanan fogging kami yang datang ke tempat Anda</p>
+            <a href="#booking" class="btn">Pesan Sekarang</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Layanan Fogging Kami</h2>
+                <p>Kami menyediakan berbagai paket layanan fogging interior mobil untuk memenuhi kebutuhan Anda</p>
+            </div>
+            <div class="service-cards">
+                <div class="service-card">
+                    <div class="service-img">
+                        <i class="fas fa-spray-can"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Fogging Basic</h3>
+                        <p>Layanan fogging dasar untuk membasmi bakteri dan jamur dengan formula khusus.</p>
+                        <ul>
+                            <li>Fogging seluruh interior</li>
+                            <li>Disinfeksi permukaan</li>
+                            <li>Pengharum ruangan</li>
+                        </ul>
+                        <div class="price">Rp 150.000</div>
+                        <a href="#" class="btn">Pesan Sekarang</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Fogging Premium</h3>
+                        <p>Layanan fogging menyeluruh dengan formula premium untuk hasil maksimal.</p>
+                        <ul>
+                            <li>Semua layanan Basic</li>
+                            <li>Fogging AC system</li>
+                            <li>Perlindungan hingga 30 hari</li>
+                            <li>Antivirus & antibakteri</li>
+                        </ul>
+                        <div class="price">Rp 250.000</div>
+                        <a href="#" class="btn">Pesan Sekarang</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Fogging Executive</h3>
+                        <p>Paket lengkap fogging dan perawatan interior mobil untuk perlindungan maksimal.</p>
+                        <ul>
+                            <li>Semua layanan Premium</li>
+                            <li>Treatment kulit & dashboard</li>
+                            <li>Perlindungan hingga 60 hari</li>
+                            <li>Aroma therapy pilihan</li>
+                        </ul>
+                        <div class="price">Rp 350.000</div>
+                        <a href="#" class="btn">Pesan Sekarang</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <div class="section-title">
+                <h2>Keuntungan Fogging Interior</h2>
+                <p>Mengapa Anda perlu melakukan fogging interior mobil secara berkala?</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <i class="fas fa-shield-virus"></i>
+                    <h3>Perlindungan Maksimal</h3>
+                    <p>Lindungi diri dan keluarga dari bakteri, virus, dan jamur berbahaya.</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-wind"></i>
+                    <h3>Udara Lebih Segar</h3>
+                    <p>Hilangkan bau tidak sedap dan nikmati udara bersih dalam kabin mobil.</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-soap"></i>
+                    <h3>Bebas Alergen</h3>
+                    <p>Eliminasi penyebab alergi dan pernapasan untuk kenyamanan berkendara.</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-truck-moving"></i>
+                    <h3>Datang ke Lokasi Anda</h3>
+                    <p>Kami melayani fogging di rumah, kantor, atau tempat parkir favorit Anda.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-title">
+                <h2>Cara Kerja Layanan Kami</h2>
+                <p>Hanya dalam 4 langkah mudah, mobil Anda akan bebas dari kuman dan bakteri</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Pesan Online</h3>
+                    <p>Isi form pemesanan melalui website atau hubungi kami langsung</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Jadwalkan Waktu</h3>
+                    <p>Tentukan waktu dan lokasi yang sesuai dengan ketersediaan Anda</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Tim Kami Datang</h3>
+                    <p>Teknisi profesional kami akan datang dengan peralatan lengkap</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Mobil Bersih & Sehat</h3>
+                    <p>Nikmati interior mobil yang bersih, sehat, dan bebas kuman</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="booking">
+        <div class="container">
+            <h2>Siap Membersihkan Interior Mobil Anda?</h2>
+            <p>Jangan tunggu hingga bau tidak sedap dan kuman mengganggu kenyamanan berkendara Anda. Pesan layanan fogging kami sekarang!</p>
+            <a href="#" class="btn btn-light">Hubungi Kami</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Fogresh</h3>
+                    <p>Layanan fogging interior mobil profesional yang datang ke lokasi Anda. Memberikan solusi terbaik untuk kebersihan dan kesehatan interior kendaraan Anda.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Layanan Kami</h3>
+                    <a href="#">Fogging Basic</a>
+                    <a href="#">Fogging Premium</a>
+                    <a href="#">Fogging Executive</a>
+                    <a href="#">Cuci Interior</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Link Penting</h3>
+                    <a href="#">Tentang Kami</a>
+                    <a href="#">FAQ</a>
+                    <a href="#">Syarat & Ketentuan</a>
+                    <a href="#">Kebijakan Privasi</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Kontak Kami</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Jl. Contoh No. 123, Jakarta</p>
+                    <p><i class="fas fa-phone"></i> +62 812 3456 7890</p>
+                    <p><i class="fas fa-envelope"></i> info@fogresh.com</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Fogresh - Layanan Fogging Interior Mobil. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
